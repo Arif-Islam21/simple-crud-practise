@@ -38,7 +38,7 @@ async function run() {
 
     app.post("/mangoData", async (req, res) => {
       const data = req.body;
-      console.log(data);
+      // console.log(data);
       const result = await mangoCollection.insertOne(data);
       res.send(result);
     });

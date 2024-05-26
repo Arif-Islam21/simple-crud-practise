@@ -8,9 +8,16 @@ const Navbar = () => {
           <button className="btn btn-ghost">Add Mango</button>
         </li>
       </Link>
-      <li>
-        <a>Item 3</a>
-      </li>
+      <Link to={"/login"}>
+        <li>
+          <button className="btn btn-ghost">Log In</button>
+        </li>
+      </Link>
+      <Link to={"/register"}>
+        <li>
+          <button className="btn btn-ghost">Register</button>
+        </li>
+      </Link>
     </>
   );
   return (
