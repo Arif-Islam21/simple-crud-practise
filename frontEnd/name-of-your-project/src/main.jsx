@@ -4,11 +4,20 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Components/Home";
+import ErrorPage from "./Components/ErrorPage";
+import AddMango from "./Components/AddMango";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "addMango",
+        element: <AddMango></AddMango>,
+      },
+    ],
   },
 ]);
 
