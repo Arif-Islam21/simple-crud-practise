@@ -14,8 +14,9 @@ app.use(express.json());
 
 // code from mongodb atlas
 
-const uri =
-  "mongodb+srv://practiseCrud:JTWvwGD2AeQzRHWH@cluster0.09vuo6e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb://localhost:27017";
+// const uri =
+//   "mongodb+srv://practiseCrud:JTWvwGD2AeQzRHWH@cluster0.09vuo6e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -27,9 +28,27 @@ const client = new MongoClient(uri, {
 });
 
 async function run() {
+  const database = client.db("mangoDB");
+  const mangoCollection = database.collection("mango");
+  // const mangoCollection = client.db("mangoDB").database.collection("mango");
+
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
+
+    app.post("/mangoData", async (req, res) => {
+      const data = req.body;
+      console.log(data);
+      const result = await mangoCollection.insertOne(data);
+      res.send(result);
+    });
+
+    app.get("/mangoData", async (req, res) => {
+      const query = mangoCollection.find();
+      const result = await query.toArray();
+      res.send(result);
+    });
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
@@ -37,7 +56,7 @@ async function run() {
     );
   } finally {
     // Ensures that the client will close when you finish/error
-    await client.close();
+    // await client.close();
   }
 }
 run().catch(console.dir);

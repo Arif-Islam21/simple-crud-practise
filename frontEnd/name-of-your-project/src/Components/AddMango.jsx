@@ -18,6 +18,17 @@ const AddMango = () => {
     };
 
     console.log(mangoData);
+    fetch("http://localhost:5000/mangoData", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(mangoData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   return (
