@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { AuthContext } from "./AuthProvider";
+
 const Registration = () => {
+  const authInfo = useContext(AuthContext);
+
   const handleRegister = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
