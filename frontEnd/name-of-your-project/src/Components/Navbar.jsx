@@ -18,6 +18,11 @@ const Navbar = () => {
           <button className="btn btn-ghost">Register</button>
         </li>
       </Link>
+      <Link to={"/"}>
+        <li>
+          <button className="btn btn-ghost">Home</button>
+        </li>
+      </Link>
     </>
   );
   return (

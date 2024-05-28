@@ -9,6 +9,8 @@ import AddMango from "./Components/AddMango";
 import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import AuthProvider from "./Components/AuthProvider";
+import MangoCard from "./Components/MangoCard";
+import Root from "./Components/Root";
 
 const router = createBrowserRouter([
   {
@@ -17,8 +19,17 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: "addMango",
+        path: "/",
+        element: <Root></Root>,
+        loader: () => fetch("http://localhost:5000/mangoData"),
+      },
+      {
+        path: "/addMango",
         element: <AddMango></AddMango>,
+      },
+      {
+        path: "mangoCard",
+        element: <MangoCard></MangoCard>,
       },
       {
         path: "/login",

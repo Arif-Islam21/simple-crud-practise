@@ -8,6 +8,7 @@ const AddMango = () => {
     const mangoColor = form.mangoColor.value;
     const mangoDate = form.mangoDate.value;
     const mangoExpire = form.mangoExpire.value;
+    const mangoLink = form.mangoLink.value;
     const mangoData = {
       mangoName,
       mangoPlace,
@@ -15,7 +16,15 @@ const AddMango = () => {
       mangoColor,
       mangoDate,
       mangoExpire,
+      mangoLink,
     };
+
+    // https://i.postimg.cc/h4md6Tny/1.png
+    // https://i.postimg.cc/Wb6JbVh0/2.png
+    // https://i.postimg.cc/zfMyPXcY/3.png
+    // https://i.postimg.cc/LshqTZvV/4.png
+    // https://i.postimg.cc/QtTFLG29/5.png
+    // https://i.postimg.cc/jSMwPh65/6.png
 
     console.log(mangoData);
     fetch("http://localhost:5000/mangoData", {
@@ -74,6 +83,14 @@ const AddMango = () => {
             placeholder="Mango Expire"
             name="mangoExpire"
             className="input input-bordered w-full max-w-sm"
+          />
+        </div>
+        <div className="flex ">
+          <input
+            type="text"
+            placeholder="Mango Link"
+            name="mangoLink"
+            className="input input-bordered w-full mx-16"
           />
         </div>
         <input
