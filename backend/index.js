@@ -56,6 +56,23 @@ async function run() {
       res.send(result);
     });
 
+    app.put("/mangoData/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const updatedMango = req.body;
+      // const updateDoc = {
+      //   $set: {
+      //     createdAt:
+      //   }
+      // }
+      const result = await mangoCollection.updateOne(
+        filter,
+        updateDoc,
+        options
+      );
+    });
+
     app.delete("/mangoData/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };

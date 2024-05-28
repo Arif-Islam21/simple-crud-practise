@@ -3,8 +3,23 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function MangoCard({ mango, setMango, mangos }) {
+  // const handleUpdateMango = (id) => {
+  //   fetch(`http://localhost:5000/mangoData/${id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(mango),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //     });
+  // };
+
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/mangoData/${id}`, {
       method: "DELETE",
@@ -38,9 +53,11 @@ export default function MangoCard({ mango, setMango, mangos }) {
         </CardContent>
       </CardActionArea>
       <CardActions className="flex justify-around">
-        <Button size="small" color="primary">
-          Update
-        </Button>
+        <Link to={`/updateMango/${_id}`}>
+          <Button size="small" color="primary">
+            Update
+          </Button>
+        </Link>
         <Button onClick={() => handleDelete(_id)} size="small" color="primary">
           Delete
         </Button>
