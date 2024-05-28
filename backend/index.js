@@ -3,7 +3,7 @@ const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 5000;
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 // USE THE MIDDLEWARES
 app.use(cors());
@@ -46,6 +46,20 @@ async function run() {
     app.get("/mangoData", async (req, res) => {
       const query = mangoCollection.find();
       const result = await query.toArray();
+      res.send(result);
+    });
+
+    app.get("/mangoData/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await mangoCollection.findOne(query);
+      res.send(result);
+    });
+
+    app.delete("/mangoData/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await mangoCollection.deleteOne(query);
       res.send(result);
     });
 

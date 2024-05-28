@@ -5,8 +5,18 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 
 export default function MangoCard({ mango }) {
-  console.log(mango);
-  const { mangoLink, mangoName, mangoPlace, mangoType } = mango;
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/mangoData/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
+  // console.log(mango);
+  const { _id, mangoLink, mangoName, mangoPlace, mangoType } = mango;
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -25,9 +35,12 @@ export default function MangoCard({ mango }) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions className="flex justify-around">
         <Button size="small" color="primary">
-          {mangoType}
+          Update
+        </Button>
+        <Button onClick={() => handleDelete(_id)} size="small" color="primary">
+          Delete
         </Button>
       </CardActions>
     </Card>
