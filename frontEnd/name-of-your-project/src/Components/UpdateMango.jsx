@@ -4,6 +4,7 @@ const UpdateMango = () => {
   const data = useLoaderData();
 
   const {
+    _id,
     mangoLink,
     mangoExpire,
     mangoDate,
@@ -14,7 +15,38 @@ const UpdateMango = () => {
   } = data;
   console.log(data);
 
-  const handleUpdateMango = (e) => {};
+  const handleUpdateMango = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const mangoName = form.mangoName.value;
+    const mangoPlace = form.mangoPlace.value;
+    const mangoType = form.mangoType.value;
+    const mangoColor = form.mangoColor.value;
+    const mangoDate = form.mangoDate.value;
+    const mangoExpire = form.mangoExpire.value;
+    const mangoLink = form.mangoLink.value;
+    const mangoData = {
+      mangoName,
+      mangoPlace,
+      mangoType,
+      mangoColor,
+      mangoDate,
+      mangoExpire,
+      mangoLink,
+    };
+
+    fetch(`http://localhost:5000/mangoData/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(mangoData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <div className="container mx-auto">

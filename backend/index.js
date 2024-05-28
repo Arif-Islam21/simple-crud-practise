@@ -61,16 +61,24 @@ async function run() {
       const filter = { _id: new ObjectId(id) };
       const options = { upsert: true };
       const updatedMango = req.body;
-      // const updateDoc = {
-      //   $set: {
-      //     createdAt:
-      //   }
-      // }
+      console.log(updatedMango);
+      const updateDoc = {
+        $set: {
+          mangoName: updatedMango.mangoName,
+          mangoPlace: updatedMango.mangoPlace,
+          mangoType: updatedMango.mangoType,
+          mangoColor: updatedMango.mangoColor,
+          mangoDate: updatedMango.mangoDate,
+          mangoExpire: updatedMango.mangoExpire,
+          mangoLink: updatedMango.mangoLink,
+        },
+      };
       const result = await mangoCollection.updateOne(
         filter,
         updateDoc,
         options
       );
+      res.send(result);
     });
 
     app.delete("/mangoData/:id", async (req, res) => {
