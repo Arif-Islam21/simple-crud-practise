@@ -4,7 +4,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 
-export default function MangoCard({ mango }) {
+export default function MangoCard({ mango, setMango, mangos }) {
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/mangoData/${id}`, {
       method: "DELETE",
@@ -12,6 +12,8 @@ export default function MangoCard({ mango }) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        const remaining = mangos.filter((oneMango) => oneMango._id !== id);
+        setMango(remaining);
       });
   };
 
