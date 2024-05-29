@@ -35,13 +35,16 @@ const UpdateMango = () => {
       mangoLink,
     };
 
-    fetch(`http://localhost:5000/mangoData/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(mangoData),
-    })
+    fetch(
+      `https://backend-bwq7uvzhp-arifs-projects-c80db1af.vercel.app/mangoData/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(mangoData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

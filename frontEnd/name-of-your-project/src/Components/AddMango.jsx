@@ -27,13 +27,16 @@ const AddMango = () => {
     // https://i.postimg.cc/jSMwPh65/6.png
 
     console.log(mangoData);
-    fetch("http://localhost:5000/mangoData", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(mangoData),
-    })
+    fetch(
+      "https://backend-bwq7uvzhp-arifs-projects-c80db1af.vercel.app/mangoData",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(mangoData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

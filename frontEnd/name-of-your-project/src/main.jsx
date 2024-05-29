@@ -22,7 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Root></Root>,
-        loader: () => fetch("http://localhost:5000/mangoData"),
+        loader: () =>
+          fetch(
+            "https://backend-bwq7uvzhp-arifs-projects-c80db1af.vercel.app/mangoData"
+          ),
       },
       {
         path: "/addMango",
@@ -36,7 +39,9 @@ const router = createBrowserRouter([
         path: "/updateMango/:id",
         element: <UpdateMango></UpdateMango>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/mangoData/${params.id}`),
+          fetch(
+            `https://backend-bwq7uvzhp-arifs-projects-c80db1af.vercel.app/mangoData/${params.id}`
+          ),
       },
       {
         path: "/login",

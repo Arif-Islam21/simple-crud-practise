@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function MangoCard({ mango, setMango, mangos }) {
   // const handleUpdateMango = (id) => {
-  //   fetch(`http://localhost:5000/mangoData/${id}`, {
+  //   fetch(`https://backend-bwq7uvzhp-arifs-projects-c80db1af.vercel.app/mangoData/${id}`, {
   //     method: "PUT",
   //     headers: {
   //       "content-type": "application/json",
@@ -21,9 +21,12 @@ export default function MangoCard({ mango, setMango, mangos }) {
   // };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/mangoData/${id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://backend-bwq7uvzhp-arifs-projects-c80db1af.vercel.app/mangoData/${id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
