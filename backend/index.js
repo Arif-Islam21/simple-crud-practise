@@ -1,12 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const app = express();
 const port = process.env.PORT || 5000;
-const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
+const corsOptions = {
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
 // USE THE MIDDLEWARES
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // practiseCrud
@@ -28,13 +34,13 @@ const client = new MongoClient(uri, {
 });
 
 async function run() {
-  const database = client.db("mangoDB");
-  const mangoCollection = database.collection("mango");
   // const mangoCollection = client.db("mangoDB").database.collection("mango");
 
   try {
     // Connect the client to the server	(optional starting in v4.7)
     // await client.connect();
+    const database = client.db("mangoDB");
+    const mangoCollection = database.collection("mango");
 
     app.post("/mangoData", async (req, res) => {
       const data = req.body;

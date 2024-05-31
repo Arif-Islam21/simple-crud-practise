@@ -36,13 +36,14 @@ const UpdateMango = () => {
     };
 
     fetch(
-      `https://backend-bwq7uvzhp-arifs-projects-c80db1af.vercel.app/mangoData/${_id}`,
+      `https://backend-e27uy05xv-arifs-projects-c80db1af.vercel.app/mangoData/${_id}`,
       {
         method: "PUT",
         headers: {
           "content-type": "application/json",
         },
         body: JSON.stringify(mangoData),
+        mode: "no-cors",
       }
     )
       .then((res) => res.json())

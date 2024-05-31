@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         element: <Root></Root>,
         loader: () =>
           fetch(
-            "https://backend-bwq7uvzhp-arifs-projects-c80db1af.vercel.app/mangoData"
+            "https://backend-e27uy05xv-arifs-projects-c80db1af.vercel.app/mangoData"
           ),
       },
       {
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <UpdateMango></UpdateMango>,
         loader: ({ params }) =>
           fetch(
-            `https://backend-bwq7uvzhp-arifs-projects-c80db1af.vercel.app/mangoData/${params.id}`
+            `https://backend-e27uy05xv-arifs-projects-c80db1af.vercel.app/mangoData/${params.id}`
           ),
       },
       {

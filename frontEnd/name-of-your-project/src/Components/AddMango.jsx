@@ -28,13 +28,14 @@ const AddMango = () => {
 
     console.log(mangoData);
     fetch(
-      "https://backend-bwq7uvzhp-arifs-projects-c80db1af.vercel.app/mangoData",
+      "https://backend-e27uy05xv-arifs-projects-c80db1af.vercel.app/mangoData",
       {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
         body: JSON.stringify(mangoData),
+        mode: "no-cors",
       }
     )
       .then((res) => res.json())
