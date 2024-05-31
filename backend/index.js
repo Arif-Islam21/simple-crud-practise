@@ -5,13 +5,8 @@ const app = express();
 const port = process.env.PORT || 5000;
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
-const corsOptions = {
-  origin: "http://localhost:5173",
-  optionsSuccessStatus: 200, // For legacy browser support
-};
-
 // USE THE MIDDLEWARES
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 // practiseCrud
