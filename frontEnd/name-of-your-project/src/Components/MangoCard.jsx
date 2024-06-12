@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function MangoCard({ mango, setMango, mangos }) {
   // const handleUpdateMango = (id) => {
-  //   fetch(`https://coffee-store-server-with-auth-main-86oe4f4xx.vercel.app/mangoData/${id}`, {
+  //   fetch(`http://localhost:5000/mangoData/${id}`, {
   //     method: "PUT",
   //     headers: {
   //       "content-type": "application/json",

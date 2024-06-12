@@ -28,7 +28,7 @@ const AddMango = () => {
 
     console.log(mangoData);
     fetch(
-      "https://coffee-store-server-with-auth-main-86oe4f4xx.vercel.app/mangoData",
+      "https://coffee-store-server-with-auth-main-86oe4f4xx.vercel.app//mangoData",
       {
         method: "POST",
         headers: {
