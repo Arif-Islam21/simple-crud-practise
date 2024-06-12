@@ -5,8 +5,9 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const app = express();
 const port = process.env.PORT || 5000;
 
+// Custom CORS configuration
 const corsOptions = {
-  origin: "*",
+  origin: "http://localhost:5173", // Adjust to match the client URL
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,

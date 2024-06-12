@@ -36,7 +36,7 @@ const UpdateMango = () => {
     };
 
     fetch(
-      `https://backend-e27uy05xv-arifs-projects-c80db1af.vercel.app/mangoData/${_id}`,
+      `https://coffee-store-server-with-auth-main-86oe4f4xx.vercel.app/mangoData/${_id}`,
       {
         method: "PUT",
         headers: {

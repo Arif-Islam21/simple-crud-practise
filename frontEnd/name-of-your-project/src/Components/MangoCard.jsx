@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function MangoCard({ mango, setMango, mangos }) {
   // const handleUpdateMango = (id) => {
-  //   fetch(`https://backend-e27uy05xv-arifs-projects-c80db1af.vercel.app/mangoData/${id}`, {
+  //   fetch(`https://coffee-store-server-with-auth-main-86oe4f4xx.vercel.app/mangoData/${id}`, {
   //     method: "PUT",
   //     headers: {
   //       "content-type": "application/json",
@@ -22,7 +22,7 @@ export default function MangoCard({ mango, setMango, mangos }) {
 
   const handleDelete = (id) => {
     fetch(
-      `https://backend-e27uy05xv-arifs-projects-c80db1af.vercel.app/mangoData/${id}`,
+      `https://coffee-store-server-with-auth-main-86oe4f4xx.vercel.app/mangoData/${id}`,
       {
         method: "DELETE",
         mode: "no-cors",

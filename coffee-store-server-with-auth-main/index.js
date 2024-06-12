@@ -9,8 +9,11 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb+srv://practiseCrud:JTWvwGD2AeQzRHWH@cluster0.swu9d.mongodb.net/?retryWrites=true&w=majority`;
-console.log(uri);
+// const uri = `mongodb+srv://practiseCrud:JTWvwGD2AeQzRHWH@cluster0.swu9d.mongodb.net/?retryWrites=true&w=majority`;
+// console.log(uri);
+
+const uri =
+  "mongodb+srv://practiseCrud:JTWvwGD2AeQzRHWH@cluster0.09vuo6e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
